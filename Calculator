@@ -5,26 +5,26 @@ import javax.swing.*;
 public class newCalculator extends JFrame implements ActionListener
 {
     
-    JLabel lb1 = new JLabel("Number 1 :- ");
-    JLabel lb2 = new JLabel("Number 2 :- ");
-    JLabel lb3 = new JLabel("Operator :- ");
-    JLabel lb4 = new JLabel("Result :- ");
-    JLabel lb5 = new JLabel("Choose Operator from Below ");
+    JLabel lb1 = new JLabel("Value 1 :- ");
+    JLabel lb2 = new JLabel("Value 2 :- ");
+    JLabel lb3 = new JLabel("Operation :- ");
+    JLabel lb4 = new JLabel("Answer :- ");
+    JLabel lb5 = new JLabel("Choose Operation from Below ");
 
     JTextField tf1 = new JTextField();
     JTextField tf2 = new JTextField();
     JTextField tf3 = new JTextField();
     JTextField tf4 = new JTextField();
 
-    JButton btn1 = new JButton("+");
-    JButton btn2 = new JButton("-");
-    JButton btn3 = new JButton("*");
-    JButton btn4 = new JButton("/");
-    JButton btn5 = new JButton("=");
+    JButton btn1 = new JButton(" + ");
+    JButton btn2 = new JButton(" - ");
+    JButton btn3 = new JButton(" * ");
+    JButton btn4 = new JButton(" / ");
+    JButton btn5 = new JButton(" = ");
 
     newCalculator()
     {
-        setTitle("Kishan's Calculator");
+        setTitle("My Calculator");
         getContentPane().setBackground(Color.cyan);
 
 
