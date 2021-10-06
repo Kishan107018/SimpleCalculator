@@ -1,150 +1,68 @@
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-
-public class newCalculator extends JFrame implements ActionListener
-{
-    
-    JLabel lb1 = new JLabel("Value 1 :- ");
-    JLabel lb2 = new JLabel("Value 2 :- ");
-    JLabel lb3 = new JLabel("Operation :- ");
-    JLabel lb4 = new JLabel("Answer :- ");
-    JLabel lb5 = new JLabel("Choose Operation from Below ");
-
-    JTextField tf1 = new JTextField();
-    JTextField tf2 = new JTextField();
-    JTextField tf3 = new JTextField();
-    JTextField tf4 = new JTextField();
-
-    JButton btn1 = new JButton(" + ");
-    JButton btn2 = new JButton(" - ");
-    JButton btn3 = new JButton(" * ");
-    JButton btn4 = new JButton(" / ");
-    JButton btn5 = new JButton(" = ");
-
-    newCalculator()
+import java.io.*;
+import java.lang.*;
+import java.lang.Math;
+import java.util.Scanner;
+public class BasicCalculator {
+  
+    public static void main(String[] args)
     {
-        setTitle("My Calculator");
-        getContentPane().setBackground(Color.cyan);
-
-
-        add(lb1);
-
-        add(lb2);
+        double num1, num2;
+  
+        Scanner sc = new Scanner(System.in);
+  
+        System.out.println("Enter the numbers");
         
-        add(lb5);
-
-        add(lb3);
-
-        add(lb4);
-
-        lb1.setBounds(100,100,70,10);
-        lb2.setBounds(100,150,70,10);
-        lb5.setBounds(150,180,170,10);
-        lb3.setBounds(100,200,70,10);
-        lb4.setBounds(100,250,70,10);
-
-        tf1.setBounds(170,100,90,20);
-        add(tf1);
-
-        tf2.setBounds(170,150,90,20);
-        add(tf2);
-
-        tf3.setBounds(170,200,90,20);
-        add(tf3);
-
-        tf4.setBounds(170,250,90,20);
-        add(tf4);
-
-        btn1.setBounds(100,300,50,30);
-        add(btn1);
-
-        btn2.setBounds(200,300,50,30);
-        add(btn2);
-
-        btn3.setBounds(300,300,50,30);
-        add(btn3);
-
-        btn4.setBounds(400,300,50,30);
-        add(btn4);
-
-        btn5.setBounds(250,400,80,30);
-        add(btn5);
-
-        btn1.addActionListener(this);
-        btn2.addActionListener(this);
-        btn3.addActionListener(this);
-        btn4.addActionListener(this);
-        btn5.addActionListener(this);
-
-        // for closing the frame window
-        addWindowListener(new WindowAdapter()
-        { public void windowClosing(WindowEvent we)
-            {dispose();}
-        }
-        );
-
+        num1 = sc.nextDouble();
+        num2 = sc.nextDouble();
+  
+        System.out.println("Enter the operator (+,-,*,/)");
         
-        setLayout(null);
-        setVisible(true);
-        setSize(800,800);
-    }
-    public void actionPerformed(ActionEvent e)
-    {
-        int n1 = Integer.parseInt(tf1.getText());
-        int n2 = Integer.parseInt(tf2.getText());
-
-        if(e.getSource() == btn1 )
-        {  
-            tf3.setText(btn1.getText());
+        char op = sc.next().charAt(0);
+  
+        double o = 0;
+  
+        switch (op) {
+  
+        case '+':
+  
+            o = num1 + num2;
+  
+            break;
+  
+        // case to subtract two numbers
+        case '-':
+  
+            o = num1 - num2;
+  
+            break;
+  
+        // case to multiply two numbers
+        case '*':
+  
+            o = num1 * num2;
+  
+            break;
+  
+        // case to divide two numbers
+        case '/':
+  
+            o = num1 / num2;
+  
+            break;
+  
+        default:
+  
+            System.out.println("You enter wrong input");
+  
+            break;
         }
-        if(e.getSource() == btn2)
-        {
-            tf3.setText(btn2.getText());
-        }
-        if(e.getSource() == btn3)
-        {
-            tf3.setText(btn3.getText());
-        }
-        if(e.getSource() == btn4)
-        {
-            tf3.setText(btn4.getText());
-        }
-
-        //
-        switch (tf3.getText()) {
-            case "+":{
-                         if(e.getSource() == btn5)
-                           {
-                            tf4.setText(String.valueOf(n1+n2));
-                            }
-                          break;
-                      }
-            case "-":{
-                         if(e.getSource() == btn5)
-                         {
-                            tf4.setText(String.valueOf(n1-n2));   
-                         }
-                     break;
-                    }
-            case "*":{
-                       if(e.getSource() == btn5)
-                       {
-                        tf4.setText(String.valueOf(n1*n2));
-                       }
-                     break;}
-            case "/":{
-                       if(e.getSource() == btn5)
-                       {
-                        tf4.setText(String.valueOf(n1/n2));
-                       }
-                     break;
-                      }
-            default:{break;}
-        }
-    }
-    public static void main(String [] args)
-    {
-        new newCalculator();
+  
+        System.out.println("The final result:");
+  
+        System.out.println();
+  
+        // print the final result
+        System.out.println(num1 + " " + op + " " + num2
+                           + " = " + o);
     }
 }
